@@ -1,26 +1,32 @@
-alert("NEW SCRIPT LOADED");
+body {
+    margin: 0;
+    background: #000;
+    color: #00ff41;
+    font-family: "Courier New", monospace;
+    font-size: 16px;
+}
 
-const input = document.getElementById("command-input");
-const output = document.getElementById("output");
+#terminal {
+    padding: 20px;
+    min-height: 100vh;
+    box-sizing: border-box;
+}
 
-let username = null;
+#output p {
+    margin: 4px 0;
+}
 
-input.addEventListener("keydown", function(event) {
-    if (event.key !== "Enter") return;
+#input-line {
+    display: flex;
+    gap: 8px;
+}
 
-    const text = input.value.trim();
-    if (text === "") return;
-
-    if (username === null) {
-        username = text;
-
-        output.innerHTML += "<p>> " + username + "</p>";
-        output.innerHTML += "<p>welcome, " + username + "</p>";
-        output.innerHTML += "<p>world channel ready.</p>";
-        output.innerHTML += "<p>type a message:</p>";
-    } else {
-        output.innerHTML += "<p>" + username + ": " + text + "</p>";
-    }
-
-    input.value = "";
-});
+#command-input {
+    background: transparent;
+    border: none;
+    outline: none;
+    color: #00ff41;
+    font-family: inherit;
+    font-size: inherit;
+    width: 100%;
+}
